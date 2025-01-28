@@ -91,10 +91,10 @@ const About = () => {
           <h3 className="text-xl font-semibold mb-2">Education</h3>
           <p className="text-gray-600 dark:text-gray-300">
             <p>
-              <strong>Name:</strong> Obamah Modupe Rejoice
+              <strong>Name:</strong> Oluwasegun Oluwashindara Precious
             </p>
             <p>
-              <strong>Matric No:</strong> F/HD/23/3210049
+              <strong>Matric No:</strong> F/HD/23/3210029
             </p>
             <p>
               <strong>Department:</strong> Computer Science
