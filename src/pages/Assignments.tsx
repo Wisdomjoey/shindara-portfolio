@@ -74,7 +74,7 @@ const Assignments = () => {
 
   useEffect(() => {
     const filePath =
-      "https://envie-portfolio.vercel.app/Oluwasegun Oluwasindara precious - ASSIGNMENT 1.docx"; // Replace with the actual file path
+      "https://shindara-portfolio-gcb9.vercel.app/Oluwasegun Oluwasindara precious - ASSIGNMENT 1.docx"; // Replace with the actual file path
 
     const fetchData = async () => {
       try {
