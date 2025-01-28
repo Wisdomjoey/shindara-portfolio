@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Upload, File, Trash2, Plus, Download } from "lucide-react";
+import { Upload, File as FileIcon, Trash2, Plus, Download } from "lucide-react";
 
 interface Assignment {
   id: string;
@@ -73,22 +73,31 @@ const Assignments = () => {
   };
 
   useEffect(() => {
-    const filePath = "https://envie-portfolio.vercel.app/Oluwasegun Oluwasindara precious - ASSIGNMENT 1.docx"; // Replace with the actual file path
+    const filePath =
+      "https://envie-portfolio.vercel.app/Oluwasegun Oluwasindara precious - ASSIGNMENT 1.docx"; // Replace with the actual file path
 
     const fetchData = async () => {
       try {
-        const res = await fetch(filePath)
+        const res = await fetch(filePath);
 
-        if (!res.ok) return console.log('Couldnt fetch file')
+        if (!res.ok) return console.log("Couldnt fetch file");
 
-        const blob = await res.blob()
+        const blob = await res.blob();
+        const file = new File(
+          [blob],
+          "Oluwasegun Oluwasindara precious - ASSIGNMENT 1.docx",
+          { type: blob.type }
+        );
 
-        handleFiles([blob], ['Oluwasegun Oluwasindara precious - ASSIGNMENT 1.docx'])
+        handleFiles([file]);
       } catch (error) {
-        console.error(error)
-        console.log('Something went wrong')
+        console.error(error);
+        console.log("Something went wrong");
       }
-    }
+    };
+
+    fetchData();
+  });
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -153,7 +162,7 @@ const Assignments = () => {
               >
                 <div className="flex items-center space-x-4">
                   <div className="p-3 glass rounded-xl">
-                    <File className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                    <FileIcon className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
                   </div>
                   <div>
                     <h3 className="font-medium dark:text-white">
