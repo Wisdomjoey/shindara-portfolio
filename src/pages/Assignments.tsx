@@ -73,23 +73,29 @@ const Assignments = () => {
   };
 
   useEffect(() => {
-    const filePath =
-      "https://shindara-portfolio-gcb9.vercel.app/Oluwasegun Oluwasindara precious - ASSIGNMENT 1.docx"; // Replace with the actual file path
+    const filePaths =
+      ["Oluwasegun Oluwasindara precious - ASSIGNMENT 1.docx", "PROBLEM.pdf"]; // Replace with the actual file path
 
     const fetchData = async () => {
       try {
-        const res = await fetch(filePath);
+        const files: File[] = [];
+
+        filePaths.forEach(filePath => {
+          const res = await fetch(`https://shindara-portfolio-gcb9.vercel.app/${filePath}`);
 
         if (!res.ok) return console.log("Couldnt fetch file");
 
         const blob = await res.blob();
         const file = new File(
           [blob],
-          "Oluwasegun Oluwasindara precious - ASSIGNMENT 1.docx",
+          filePath,
           { type: blob.type }
         );
 
-        handleFiles([file]);
+          files.push(file)
+        })
+        
+        handleFiles(files);
       } catch (error) {
         console.error(error);
         console.log("Something went wrong");
