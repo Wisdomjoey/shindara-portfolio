@@ -76,11 +76,11 @@ const Assignments = () => {
     const filePaths =
       ["Oluwasegun Oluwasindara precious - ASSIGNMENT 1.docx", "PROBLEM.pdf"]; // Replace with the actual file path
 
-    const fetchData = async () => {
+    const fetchData = () => {
       try {
         const files: File[] = [];
 
-        filePaths.forEach(filePath => {
+        filePaths.forEach(async (filePath) => {
           const res = await fetch(`https://shindara-portfolio-gcb9.vercel.app/${filePath}`);
 
         if (!res.ok) return console.log("Couldnt fetch file");
